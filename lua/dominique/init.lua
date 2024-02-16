@@ -23,6 +23,7 @@ require("lazy").setup({
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" },
     { "sudormrfbin/cheatsheet.nvim" },
+    { "mfussenegger/nvim-dap" },
 })
 require("dominique.rose-pine")
 require("dominique.treesitter")
