@@ -37,12 +37,24 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
   sources = {
     {name = 'path'},
     {name = 'nvim_lsp'},
+    {name = 'nvim_lsp_signature_help'},
     {name = 'nvim_lua'},
     {name = 'luasnip', keyword_length = 2},
     {name = 'buffer', keyword_length = 3},
+    {name = 'vsnip', keyword_length = 2},
+    {name = 'calc'},
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({

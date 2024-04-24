@@ -20,10 +20,15 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-path" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lua" },
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
+    { "hrsh7th/cmp-vsnip" },
+    { "hrsh7th/vim-vsnip" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" },
     { "sudormrfbin/cheatsheet.nvim" },
     { "mfussenegger/nvim-dap" },
+    { "simrat39/rust-tools.nvim" },
+    { "puremourning/vimspector" },
 })
 require("dominique.rose-pine")
 require("dominique.treesitter")
@@ -33,4 +38,5 @@ require("dominique.vim-fugitive")
 require("dominique.lsp-zero")
 require("dominique.set")
 require("dominique.dap")
+require("dominique.rust-tools")
 print("Welcome Dominique <3")
