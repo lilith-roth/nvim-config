@@ -2,8 +2,9 @@ require("dominique.remap")
 require("dominique.lazy")
 require("lazy").setup({
 	{
-		"nvim-telescope/telescope.nvim", tag = "0.1.5",
-		dependencies = { "nvim-lua/plenary.nvim" }
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.5",
+		dependencies = { "nvim-lua/plenary.nvim" },
 	},
 	{ "rose-pine/neovim", as = "rose-pine" },
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
@@ -12,6 +13,7 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive" },
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "neovim/nvim-lspconfig" },
+	{ "mhartington/formatter.nvim" },
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "hrsh7th/cmp-nvim-lsp" },
@@ -20,17 +22,16 @@ require("lazy").setup({
 	{ "hrsh7th/cmp-path" },
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lua" },
-    { "hrsh7th/cmp-nvim-lsp-signature-help" },
-    { "hrsh7th/cmp-vsnip" },
-    { "hrsh7th/vim-vsnip" },
+	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
+	{ "hrsh7th/cmp-vsnip" },
+	{ "hrsh7th/vim-vsnip" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" },
-    { "sudormrfbin/cheatsheet.nvim" },
-    { "mfussenegger/nvim-dap" },
-    { "mrcjkb/rustaceanvim" },
-    { "simrat39/rust-tools.nvim" },
-    { "puremourning/vimspector" },
-    { "rust-lang/rust.vim", version = '^4', lazy = 'false' },
+	{ "sudormrfbin/cheatsheet.nvim" },
+	{ "mfussenegger/nvim-dap" },
+	{ "simrat39/rust-tools.nvim" },
+	{ "puremourning/vimspector" },
+	{ "rust-lang/rust.vim", version = "^4", lazy = "false" },
 })
 require("dominique.rose-pine")
 require("dominique.treesitter")
@@ -42,4 +43,5 @@ require("dominique.set")
 require("dominique.dap")
 require("dominique.rust-tools")
 require("dominique.rustaceanvim")
+require("dominique.formatter")
 print("Welcome Dominique <3")
