@@ -42,7 +42,7 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"tsserver",
 		"rust_analyzer",
-		"csharp_ls",
+--		"csharp_ls",
 		"pyright",
 		"eslint",
 		"lua_ls",
@@ -79,6 +79,7 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 3 },
 		{ name = "vsnip", keyword_length = 2 },
 		{ name = "calc" },
+        { name = "cmp_lsp_rs" }
 	},
 	window = {
 		completion = cmp.config.window.bordered(),

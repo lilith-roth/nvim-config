@@ -32,6 +32,7 @@ require("lazy").setup({
 	{ "simrat39/rust-tools.nvim" },
 	{ "puremourning/vimspector" },
 	{ "rust-lang/rust.vim", version = "^4", lazy = "false" },
+    { "nvim-treesitter/nvim-treesitter-context" },
 })
 require("dominique.rose-pine")
 require("dominique.treesitter")
@@ -44,4 +45,5 @@ require("dominique.dap")
 require("dominique.rust-tools")
 require("dominique.rustaceanvim")
 require("dominique.formatter")
+require("dominique.treesitter-context")
 print("Welcome Dominique <3")
