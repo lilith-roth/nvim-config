@@ -48,12 +48,23 @@ require("lazy").setup({
 	{ "simrat39/rust-tools.nvim" },
 	{ "puremourning/vimspector" },
 	{ "rust-lang/rust.vim", version = "^4", lazy = "false" },
+    -- Golang improvements
+    { "olexsmir/gopher.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } },
     -- UI
     { "MunifTanjim/nui.nvim" },
     { "rcarriga/nvim-notify" },
     { "folke/noice.nvim" },
     -- Diagnostics
     { "folke/trouble.nvim", cmd = "Trouble" },
+    -- Theme switcher
+    { "zaldih/themery.nvim" },
+    -- markdown support
+    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+    -- folding
+    { "kevinhwang91/promise-async" },
+    { "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } },
+    -- Exit confirmation
+    { "yutkat/confirm-quit.nvim", event = "CmdlineEnter", opts = {} },
 })
 require("plugins.rose-pine")
 require("plugins.treesitter")
@@ -71,4 +82,7 @@ require("plugins.treesitter-context")
 require("plugins.noice")
 require("plugins.trouble-nvim")
 require("plugins.cheatsheet")
+require("plugins.themery")
+require("plugins.gopher")
+require("plugins.ufo")
 print("Welcome Dominique <3")
