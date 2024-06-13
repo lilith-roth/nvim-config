@@ -42,7 +42,6 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"tsserver",
 		"rust_analyzer",
---		"csharp_ls",
 		"pyright",
 		"eslint",
 		"lua_ls",

@@ -1,7 +1,8 @@
 local dap = require("dap")
+local homedir = os.getenv("HOME")
 dap.adapters.coreclr = {
 	type = "executable",
-	command = "/usr/bin/netcoredbg/netcoredbg",
+	command = homedir .. "/.local/share/nvim/mason/bin/netcoredbg",
 	args = { "--interpreter=vscode" },
 }
 

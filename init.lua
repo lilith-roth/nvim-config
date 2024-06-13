@@ -1,1 +1,1 @@
-require("dominique")
+require("plugins")
