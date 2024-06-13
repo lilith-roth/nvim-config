@@ -78,7 +78,7 @@ cmp.setup({
 		{ name = "buffer", keyword_length = 3 },
 		{ name = "vsnip", keyword_length = 2 },
 		{ name = "calc" },
-        { name = "cmp_lsp_rs" }
+		{ name = "cmp_lsp_rs" },
 	},
 	window = {
 		completion = cmp.config.window.bordered(),

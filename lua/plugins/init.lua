@@ -1,28 +1,28 @@
 require("plugins.remap")
 require("plugins.lazy")
 require("lazy").setup({
-    -- Telescope
+	-- Telescope
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.5",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-    -- Theme
+	-- Theme
 	{ "rose-pine/neovim", as = "rose-pine" },
-    -- Treesitter
+	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-    { "nvim-treesitter/nvim-treesitter-context" },
-    -- Harpoon
+	{ "nvim-treesitter/nvim-treesitter-context" },
+	-- Harpoon
 	{ "ThePrimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
-    -- Undotree
+	-- Undotree
 	{ "mbbill/undotree" },
 	{ "tpope/vim-fugitive" },
-    -- LSP
+	-- LSP
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "neovim/nvim-lspconfig" },
-    -- Formatter
+	-- Formatter
 	{ "mhartington/formatter.nvim" },
-    -- LSP Manager Mason
+	-- LSP Manager Mason
 	{ "williamboman/mason.nvim" },
 	{ "williamboman/mason-lspconfig.nvim" },
 	{ "hrsh7th/cmp-nvim-lsp" },
@@ -36,35 +36,78 @@ require("lazy").setup({
 	{ "hrsh7th/vim-vsnip" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" },
-    -- Cheat Sheet
+	-- Cheat Sheet
 	{ "doctorfree/cheatsheet.nvim" },
-    { "folke/lazydev.nvim" },
-    -- Debugger
-    { "nvim-neotest/nvim-nio" },
+	{ "folke/lazydev.nvim" },
+	-- Debugger
+	{ "nvim-neotest/nvim-nio" },
 	{ "mfussenegger/nvim-dap" },
-    { "pocco81/dap-buddy.nvim" },
-    { "rcarriga/nvim-dap-ui" },
-    -- Rust improvements
+	{ "pocco81/dap-buddy.nvim" },
+	{ "rcarriga/nvim-dap-ui" },
+	-- Rust improvements
 	{ "simrat39/rust-tools.nvim" },
 	{ "puremourning/vimspector" },
 	{ "rust-lang/rust.vim", version = "^4", lazy = "false" },
-    -- Golang improvements
-    { "olexsmir/gopher.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } },
-    -- UI
-    { "MunifTanjim/nui.nvim" },
-    { "rcarriga/nvim-notify" },
-    { "folke/noice.nvim" },
-    -- Diagnostics
-    { "folke/trouble.nvim", cmd = "Trouble" },
-    -- Theme switcher
-    { "zaldih/themery.nvim" },
-    -- markdown support
-    { "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
-    -- folding
-    { "kevinhwang91/promise-async" },
-    { "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } },
-    -- Exit confirmation
-    { "yutkat/confirm-quit.nvim", event = "CmdlineEnter", opts = {} },
+	-- Golang improvements
+	{ "olexsmir/gopher.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } },
+	-- UI
+	{ "MunifTanjim/nui.nvim" },
+	{ "rcarriga/nvim-notify" },
+	{ "folke/noice.nvim" },
+	-- Diagnostics
+	{ "folke/trouble.nvim", cmd = "Trouble" },
+	-- Theme switcher
+	{ "zaldih/themery.nvim" },
+	-- markdown support
+	{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
+	-- folding
+	{ "kevinhwang91/promise-async" },
+	{ "kevinhwang91/nvim-ufo", requires = { "kevinhwang91/promise-async" } },
+	-- Exit confirmation
+	{ "yutkat/confirm-quit.nvim", event = "CmdlineEnter", opts = {} },
+	-- csv support
+	{
+		"Vidocqh/data-viewer.nvim",
+		opts = {},
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"kkharji/sqlite.lua",
+		},
+	},
+	-- Status bar
+	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
+	-- Tab support
+	{
+		"romgrk/barbar.nvim",
+		dependencies = {
+			"lewis6991/gitsigns.nvim",
+			"nvim-tree/nvim-web-devicons",
+		},
+		init = function()
+			vim.g.barbar_auto_setup = false
+		end,
+		opts = {},
+	},
+	-- commenting
+	{ "numToStr/Comment.nvim", opts = {} },
+	-- Testing
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+
+			"nvim-neotest/neotest-python",
+			"nvim-neotest/neotest-plenary",
+			"akinsho/neotest-go",
+			"mrcjkb/rustaceanvim",
+			"Issafalcon/neotest-dotnet",
+			"rcasia/neotest-bash",
+			"nvim-neotest/neotest-vim-test",
+		},
+	},
 })
 require("plugins.rose-pine")
 require("plugins.treesitter")
@@ -85,4 +128,9 @@ require("plugins.cheatsheet")
 require("plugins.themery")
 require("plugins.gopher")
 require("plugins.ufo")
+require("plugins.data-viewer")
+require("plugins.lualine")
+require("plugins.barbar")
+require("plugins.comment")
+require("plugins.neotest")
 print("Welcome Dominique <3")
