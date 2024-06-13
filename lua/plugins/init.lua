@@ -7,8 +7,10 @@ require("lazy").setup({
 		tag = "0.1.5",
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	-- Theme
+	-- Themes
 	{ "rose-pine/neovim", as = "rose-pine" },
+    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ...},
+    { "Shatur/neovim-ayu" },
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
@@ -32,8 +34,6 @@ require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-nvim-lua" },
 	{ "hrsh7th/cmp-nvim-lsp-signature-help" },
-	{ "hrsh7th/cmp-vsnip" },
-	{ "hrsh7th/vim-vsnip" },
 	{ "L3MON4D3/LuaSnip" },
 	{ "rafamadriz/friendly-snippets" },
 	-- Cheat Sheet
@@ -133,4 +133,5 @@ require("plugins.lualine")
 require("plugins.barbar")
 require("plugins.comment")
 require("plugins.neotest")
+require("plugins.notify")
 print("Welcome Dominique <3")

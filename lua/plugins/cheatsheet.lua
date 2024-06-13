@@ -3,8 +3,8 @@ require("cheatsheet").setup({
 
 	-- For generic cheatsheets like default, unicode, nerd-fonts, etc
 	bundled_cheatsheets = {
-		enabled = { "default" },
-		--disabled = {},
+		--enabled = { "default" },
+		disabled = {"nerd-fonts", "unicode"},
 	},
 	--bundled_cheatsheets = true,
 
