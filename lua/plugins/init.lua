@@ -79,7 +79,7 @@ require("lazy").setup({
 	-- Status bar
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	-- Tab support
-	{
+	--[[ {
 		"romgrk/barbar.nvim",
 		dependencies = {
 			"lewis6991/gitsigns.nvim",
@@ -89,7 +89,7 @@ require("lazy").setup({
 			vim.g.barbar_auto_setup = false
 		end,
 		opts = {},
-	},
+	}, ]]
 	-- commenting
 	{ "numToStr/Comment.nvim", opts = {} },
 	-- Testing
@@ -134,7 +134,7 @@ require("plugins.gopher")
 require("plugins.ufo")
 require("plugins.data-viewer")
 require("plugins.lualine")
-require("plugins.barbar")
+-- require("plugins.barbar")
 require("plugins.comment")
 require("plugins.neotest")
 require("plugins.notify")
