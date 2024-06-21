@@ -112,6 +112,16 @@ require("lazy").setup({
 	},
 	-- Ident highlighting
 	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    -- Git Integration
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim",
+        },
+        config = true
+    },
 })
 require("plugins.rose-pine")
 require("plugins.treesitter")
