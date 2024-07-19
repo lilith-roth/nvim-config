@@ -45,7 +45,9 @@ require("lazy").setup({
 	{ "nvim-neotest/nvim-nio" },
 	{ "mfussenegger/nvim-dap" },
 	{ "pocco81/dap-buddy.nvim" },
-	{ "rcarriga/nvim-dap-ui" },
+	{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+    { "HallerPatrick/py_lsp.nvim" },
+    { "mfussenegger/nvim-dap-python" },
 	-- Rust improvements
 	{ "simrat39/rust-tools.nvim" },
 	{ "puremourning/vimspector" },
@@ -132,6 +134,7 @@ require("plugins.lsp-zero")
 require("plugins.set")
 require("plugins.dap")
 require("plugins.dapui")
+require("plugins.pylsp")
 require("plugins.rust-tools")
 require("plugins.rustaceanvim")
 require("plugins.formatter")
