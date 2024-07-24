@@ -30,6 +30,11 @@ dap.adapters.python = function(cb, config)
     })
   end
 end
+dap.adapters.godot = {
+  type = "server",
+  host = '127.0.0.1',
+  port = 6006,
+}
 
 dap.configurations.python = {
 
@@ -77,4 +82,13 @@ dap.configurations.cs = {
 			return vim.fn.input("Path to dll", vim.fn.getcwd() .. "/bin/Debug/", "file")
 		end,
 	},
+}
+
+dap.configurations.gdscript = {
+  {
+    type = "godot",
+    request = "launch",
+    name = "Launch scene",
+    project = "${workspaceFolder}",
+  }
 }
