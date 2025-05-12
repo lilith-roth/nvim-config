@@ -48,6 +48,7 @@ require("lazy").setup({
 	{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
     { "HallerPatrick/py_lsp.nvim" },
     { "mfussenegger/nvim-dap-python" },
+    { "ldelossa/nvim-dap-projects" },
 	-- Rust improvements
 	{ "simrat39/rust-tools.nvim" },
 	{ "puremourning/vimspector" },
@@ -124,6 +125,12 @@ require("lazy").setup({
         },
         config = true
     },
+    -- Discord rich presence
+    {
+        "vyfor/cord.nvim",
+        build = ":Cord update",
+        -- opts = {}
+    },
 })
 require("plugins.rose-pine")
 require("plugins.treesitter")
@@ -152,3 +159,5 @@ require("plugins.comment")
 require("plugins.neotest")
 require("plugins.notify")
 require("plugins.indent-blankline")
+require("nvim-dap-projects").search_project_config()
+
