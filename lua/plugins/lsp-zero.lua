@@ -96,3 +96,7 @@ cmp.setup({
 		["<C-Space>"] = cmp.mapping.complete(),
 	}),
 })
+
+-- csharp.nvim
+require("csharp").setup()
+

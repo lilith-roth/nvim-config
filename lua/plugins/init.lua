@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 require("plugins.remap")
 require("plugins.lazy")
 require("lazy").setup({
@@ -14,7 +15,7 @@ require("lazy").setup({
 	-- Treesitter
 	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 	{ "nvim-treesitter/nvim-treesitter-context" },
-	-- Harpoon
+    -- Harpoon
 	{ "ThePrimeagen/harpoon", branch = "harpoon2", dependencies = { "nvim-lua/plenary.nvim" } },
 	-- Undotree
 	{ "mbbill/undotree" },
@@ -22,6 +23,25 @@ require("lazy").setup({
 	-- LSP
 	{ "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
 	{ "neovim/nvim-lspconfig" },
+    {
+        "nvimdev/lspsaga.nvim",
+        config = function()
+            require('lspsaga').setup({})
+        end,
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-tree/nvim-web-devicons',
+        }
+    },
+    {
+        "rachartier/tiny-code-action.nvim",
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope.nvim" },
+        },
+        event = "LspAttach",
+        opts = {},
+    },
 	-- Formatter
 	{ "mhartington/formatter.nvim" },
 	-- LSP Manager Mason
@@ -53,12 +73,84 @@ require("lazy").setup({
 	{ "simrat39/rust-tools.nvim" },
 	{ "puremourning/vimspector" },
 	{ "rust-lang/rust.vim", version = "^4", lazy = "false" },
+    {
+        "saecki/crates.nvim",
+        tag = "stable",
+        config = function()
+            require("crates").setup()
+        end,
+    },
 	-- Golang improvements
 	{ "olexsmir/gopher.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } },
+    -- C# improvements
+    {
+        "iabdelkareem/csharp.nvim",
+        dependencies = {
+            "williamboman/mason.nvim",
+            "mfussenegger/nvim-dap",
+            "Tastyep/structlog.nvim",
+        },
+    },
 	-- UI
 	{ "MunifTanjim/nui.nvim" },
 	{ "rcarriga/nvim-notify" },
 	{ "folke/noice.nvim" },
+    {
+        "ldelossa/litee.nvim",
+        event = "VeryLazy",
+        opts = {
+            notify = { enabled = false },
+            panel = {
+                orientation = "bottom",
+                panel_size = 10,
+            },
+        },
+        config = function(_, opts) require ("litee.lib").setup(opts) end
+    },
+    {
+        "ldelossa/litee-calltree.nvim",
+        dependencies = "ldelossa/litee.nvim",
+        event = "VeryLazy",
+        opts = {
+            on_open = "panel",
+            map_resize_keys = false,
+        },
+        config = function(_, opts) require("litee.calltree").setup(opts) end
+    },
+    {
+        "ldelossa/litee-filetree.nvim",
+        dependencies = "ldelossa/litee.nvim",
+        event = "VeryLazy",
+        opts = {},
+        config = function(_, opts) require("litee.filetree").setup(opts) end
+    },
+    {
+        "ldelossa/litee-symboltree.nvim",
+        dependencies = "ldelossa/litee.nvim",
+        event = "VeryLazy",
+        opts = {},
+        config = function(_, opts) require("litee.symboltree").setup(opts) end
+    },
+    {
+        "ldelossa/litee-bookmarks.nvim",
+        dependencies = "ldelossa/litee.nvim",
+        event = "VeryLazy",
+        opts = {},
+        config = function(_, opts) require("litee.bookmarks").setup(opts) end
+    },
+    {
+        "prichrd/netrw.nvim",
+        config = function() require("netrw").setup({}) end
+    },
+    {
+        "petertriho/nvim-scrollbar",
+        config = function() require("scrollbar").setup() end
+    },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+        config = function() require("rainbow-delimiters.setup").setup({}) end
+    },
+    { "kosayoda/nvim-lightbulb" },
 	-- Diagnostics
 	{ "folke/trouble.nvim", cmd = "Trouble" },
 	-- Theme switcher
@@ -82,7 +174,7 @@ require("lazy").setup({
 	-- Status bar
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 	-- Tab support
-	--[[ {
+	{
 		"romgrk/barbar.nvim",
 		dependencies = {
 			"lewis6991/gitsigns.nvim",
@@ -92,7 +184,7 @@ require("lazy").setup({
 			vim.g.barbar_auto_setup = false
 		end,
 		opts = {},
-	}, ]]
+	},
 	-- commenting
 	{ "numToStr/Comment.nvim", opts = {} },
 	-- Testing
@@ -131,6 +223,137 @@ require("lazy").setup({
         build = ":Cord update",
         -- opts = {}
     },
+    -- code navigation
+    {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim",
+            "numToStr/Comment.nvim",
+            "nvim-telescope/telescope.nvim",
+        }
+    },
+    -- linting
+    { "mfussenegger/nvim-lint" },
+    -- Project manager
+    {
+        "pluffie/neoproj",
+        cmd = { "ProjectOpen", "ProjectNew" },
+    },
+    -- indentation detector
+    {
+        "Abstract-IDE/penvim",
+        config = function() require("penvim").setup({}) end
+    },
+    -- color code visualizer
+    {
+        "catgoose/nvim-colorizer.lua",
+        event = "BufReadPre",
+        opts = {},
+    },
+    -- dashboard
+    {
+        "nvimdev/dashboard-nvim",
+        event = "VimEnter",
+        config = function()
+            require("dashboard").setup({})
+        end,
+        dependencies = { { "nvim-tree/nvim-web-devicons" } }
+    },
+    -- global notes
+    { "backdround/global-note.nvim" },
+    -- whitespace visualizer
+    {
+        "mcauley-penney/visual-whitespace.nvim",
+        config = true,
+        event = "ModeChanged *:[vV\22]",
+        opts = {},
+    },
+    -- code screenshot
+    { "mistricky/codesnap.nvim", build = "make" },
+    -- code history
+    { "y3owk1n/time-machine.nvim" },
+    -- terminal improvements
+    {
+        "2kabhishek/termim.nvim",
+        cmd = { "Fterm", "FTerm", "Sterm", "STerm", "Vterm", "VTerm" },
+    },
+    -- yeet - cmd runner
+    {
+        "samharju/yeet.nvim",
+        dependencies = {
+            "stevearc/dressing.nvim",
+        },
+        version = "*",
+        cmd = "Yeet",
+        opts = {},
+    },
+    -- test runner
+    {
+        "nvim-neotest/neotest",
+        dependencies = {
+            "nvim-neotest/nvim-nio",
+            "nvim-lua/plenary.nvim",
+            "antoinemadec/FixCursorHold.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
+    -- compiler
+    {
+        "Zeioth/compiler.nvim",
+        cmd = {"CompilerOpen", "CompilerToggleResults", "CompilerRedo"},
+        dependencies = {
+            "stevearc/overseer.nvim",
+            "nvim-telescope/telescope.nvim"
+        },
+        opts = {},
+    },
+    {
+        "stevearc/overseer.nvim",
+        commit = "6271cab7ccc4ca840faa93f54440ffae3a3918bd",
+        cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+        opts = {
+            task_list = {
+                direction = "bottom",
+                min_height = 25,
+                max_height = 25,
+                default_detail = 1
+            },
+        },
+    },
+    -- GitHub integration
+    {
+        "pwntester/octo.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
+            "nvim-tree/nvim-web-devicons",
+        },
+        config = function()
+            require("octo").setup()
+        end
+    },
+    -- keybind helper
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
+    },
+    -- devcontainer support
+    {
+        "https://codeberg.org/esensar/nvim-dev-container",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
 })
 require("plugins.rose-pine")
 require("plugins.treesitter")
@@ -154,10 +377,12 @@ require("plugins.gopher")
 require("plugins.ufo")
 require("plugins.data-viewer")
 require("plugins.lualine")
--- require("plugins.barbar")
+require("plugins.barbar")
 require("plugins.comment")
 require("plugins.neotest")
 require("plugins.notify")
 require("plugins.indent-blankline")
 require("nvim-dap-projects").search_project_config()
+require("plugins.global-note")
+require("plugins.codesnap")
 
