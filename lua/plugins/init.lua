@@ -70,7 +70,6 @@ require("lazy").setup({
     { "mfussenegger/nvim-dap-python" },
     { "ldelossa/nvim-dap-projects" },
 	-- Rust improvements
-	{ "simrat39/rust-tools.nvim" },
 	{ "puremourning/vimspector" },
 	{ "rust-lang/rust.vim", version = "^4", lazy = "false" },
     {
@@ -83,14 +82,14 @@ require("lazy").setup({
 	-- Golang improvements
 	{ "olexsmir/gopher.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter" } },
     -- C# improvements
-    {
+    --[[{
         "iabdelkareem/csharp.nvim",
         dependencies = {
             "williamboman/mason.nvim",
             "mfussenegger/nvim-dap",
             "Tastyep/structlog.nvim",
         },
-    },
+    },]]
 	-- UI
 	{ "MunifTanjim/nui.nvim" },
 	{ "rcarriga/nvim-notify" },
@@ -98,45 +97,26 @@ require("lazy").setup({
     {
         "ldelossa/litee.nvim",
         event = "VeryLazy",
-        opts = {
-            notify = { enabled = false },
-            panel = {
-                orientation = "bottom",
-                panel_size = 10,
-            },
-        },
-        config = function(_, opts) require ("litee.lib").setup(opts) end
     },
     {
         "ldelossa/litee-calltree.nvim",
         dependencies = "ldelossa/litee.nvim",
         event = "VeryLazy",
-        opts = {
-            on_open = "panel",
-            map_resize_keys = false,
-        },
-        config = function(_, opts) require("litee.calltree").setup(opts) end
     },
     {
         "ldelossa/litee-filetree.nvim",
         dependencies = "ldelossa/litee.nvim",
         event = "VeryLazy",
-        opts = {},
-        config = function(_, opts) require("litee.filetree").setup(opts) end
     },
     {
         "ldelossa/litee-symboltree.nvim",
         dependencies = "ldelossa/litee.nvim",
         event = "VeryLazy",
-        opts = {},
-        config = function(_, opts) require("litee.symboltree").setup(opts) end
     },
     {
         "ldelossa/litee-bookmarks.nvim",
         dependencies = "ldelossa/litee.nvim",
         event = "VeryLazy",
-        opts = {},
-        config = function(_, opts) require("litee.bookmarks").setup(opts) end
     },
     {
         "prichrd/netrw.nvim",
@@ -365,7 +345,6 @@ require("plugins.set")
 require("plugins.dap")
 require("plugins.dapui")
 require("plugins.pylsp")
-require("plugins.rust-tools")
 require("plugins.rustaceanvim")
 require("plugins.formatter")
 require("plugins.treesitter-context")
@@ -382,7 +361,7 @@ require("plugins.comment")
 require("plugins.neotest")
 require("plugins.notify")
 require("plugins.indent-blankline")
-require("nvim-dap-projects").search_project_config()
 require("plugins.global-note")
 require("plugins.codesnap")
+require("plugins.litee")
 

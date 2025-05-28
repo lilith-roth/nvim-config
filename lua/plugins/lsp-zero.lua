@@ -98,5 +98,5 @@ cmp.setup({
 })
 
 -- csharp.nvim
-require("csharp").setup()
+--require("csharp").setup()
 
